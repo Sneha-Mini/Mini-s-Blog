@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+body {
+  margin: 0;
+  font-family: 'Inria Sans', sans-serif;
+  background-color:#FAFAFA;
+}
+.body{
+  padding:15px 100px;
+}
+.header{
+  background-image:url("header_small.jpg");
+  min-height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.centered {
+  position: absolute;
+  font-family: 'Graduate', cursive;
+  background-color: #FFFFFF;
+  padding: 5px 5px;
+  color: #212529;
+  font-size: 17px;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.topnav {
+  overflow: hidden;
+  background-color: rgba(33, 37, 41, 0.55);
+}
+
+.topnav a {
+  height:30px;
+  float: right;
+  display: block;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  font-size: 18px;
+  font-weight: bold;
+}
+.home{
+  font-size: 18px;
+  font-weight: bold;
+}
+.topnav .icon {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+ 
+}
+@media screen and (max-width: 800px) {
+  .body{
+  padding:15px 0px;
+  }
+ 
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+
+/* Style the search box */
+#mySearch {
+  width: 100%;
+  font-size: 16px;
+  padding: 11px 15px;
+  border: 1px solid #212529;
+  border-radius: 25px;
+  background: transparent;
+}
+
+/* Style the navigation menu inside the left column */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myMenu li a {
+  padding: 12px;
+  text-decoration: none;
+  color: #212529;
+  display: block;
+  border: 1px solid #212529;
+  border-radius: 25px;
+  margin-bottom:7px;
+}
+
+#myMenu li a:hover {
+  background-color: #212529;
+  color: #FFFFFF;
+}
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #212529;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.leftcolumn {   
+  float: left;
+  width: 20%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 80%;
+  padding-left: 20px;
+}
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+
+}
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.readmore:link, .readmore:visited {
+  color: #212529;
+  border: 2px solid #212529;
+  border-radius: 25px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size:12px;
+}
+.section {
+display: none;
+}
+
+.section.active{
+display: block;
+}
+
+.next,
+.previous {
+  padding: 12px 15px;
+  text-decoration: none;
+  color: #212529;
+  display: block;
+  border: 1px solid #212529;
+  border-radius: 25px;
+  margin-bottom:7px;
+  display: inline-block;
+  background-color:transparent;
+  
+}
+.next{
+  float: right;
+}
+.readmore:hover, .readmore:active,.next:hover ,.next:active, .previous:hover ,.previous:hover {
+  background-color: #212529;
+  color: white;
+}
+
+
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="centered">We feed your Inquisitiveness</div>
+  <div class="topnav" id="myTopnav" style="padding: 5px 15px;" >
+  <img src="logo.png" style="width:75px;height:60px; padding-left:10px;">
+  <a href="contact.html" >Contact</a>
+  <a href="about.html">About</a>
+  <a href="blog.html">Blog</a>
+  <a class="home" href="home.html" style="margin-bottom:10px" >Home</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+</div>
+
+<div class="body"> 
+<div class="row" style=" padding: 20px 20px;" >
+
+  <div class="leftcolumn" >
+  
+  <input type="text" id="mySearch" onkeyup="myFunc()" placeholder="Search" title="Type in a category" >  
+     <p style=" font-weight: bold;" >Blog Categories</p>
+    <ul id="myMenu" >
+      <li><a href="#r1" id="l1" style="display:inline-block; padding: 5px 15px;" >All</a></li>
+      <li><a href="#r2" id="l2" style="display:inline-block; padding: 5px 15px;">Technology</a></li>
+      <li><a href="#r3" id="l3" style="display:inline-block; padding: 5px 15px;">Travel</a></li>
+      <li><a href="#r4" id="l4" style="display:inline-block; padding: 5px 15px;">Food</a></li>
+      <li><a href="#r5" id="l5" style="display:inline-block; padding: 5px 15px;">Sports</a></li>
+      <li><a href="#r6" id="l6" style="display:inline-block; padding: 5px 15px;">Health</a></li>
+    </ul>
+  </div>
+  
+  <div class="rightcolumn" >
+  <section id="r1" class="section active">
+      <div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image6.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Innovations in renewable energy technology</h2>
+    <p>In recent years, the renewable energy industry has seen significant growth and innovation in technology. From solar...</p>
+	<a href="blog.html" class="readmore" id="link6"  >Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image7.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Gem destinations for solo travelers</h2>
+    <p>Solo travel is a growing trend that allows travelers to explore the world on their own terms, free from the constraints of group....</p>
+	<a href="blog.html" class="readmore"  id="link7" >Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	  <div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image8.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Comfort foods from around the world</h2>
+    <p>Comfort food is a term that refers to dishes that are often associated with feelings of nostalgia, warmth, and familiarity. These foods....</p>
+	<a href="blog.html" class="readmore" id="link8">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image9.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Impact of Technology on Sports</h2>
+    <p>Technology has had a significant impact on sports over the past few decades, revolutionizing everything from he way athletes train ....</p>
+	<a href="blog.html" class="readmore" id="link9">Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	  <div class="row"  >
+	  <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image10.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Power of Mindfulness</h2>
+    <p>Mindfulness is a form of meditation that involves being fully present in the moment and non-judgmentally observing one's thoughts....</p>
+	<a href="blog.html" class="readmore" id="link10">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image11.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Gaming for Education</h2>
+    <p>Gaming has been a popular form of entertainment for decades, but in recent years, it has also gained traction as an....</p>
+	<a href="blog.html" class="readmore" id="link11">Read more  &raquo;</a>
+    </div>
+	
+    </div>
+  
+  </section>
+  <section id="r2" class="section ">
+    <div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The impact of 5G technology</h2>
+    <p>5G technology is the latest generation of mobile network technology, promising faster data transfer speeds, lower latency...</p>
+	<a href="blog.html" class="readmore" id="link"  >Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image1.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Powerful Digital Marketing Statistics and Facts for 2023</h2>
+    <p>Digital marketing has become an integral part of the business world, and it's not slowing down anytime....</p>
+	<a href="blog.html" class="readmore"  id="link1" >Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	<div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image2.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Ways Your Employees Make Your Business Vulnerable to Cyber Attacks</h2>
+    <p>In today's digital age, businesses are increasingly reliant on technology to carry out their day-to-day....</p>
+	<a href="blog.html" class="readmore" id="link2">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image3.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Cloud computing and its impact on business</h2>
+    <p>Cloud computing has become an essential technology for businesses of all sizes in recent years. It offers numerous benefits such as cost ....</p>
+	<a href="blog.html" class="readmore" id="link3">Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	<div class="row"  >
+	  <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image4.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Virtual Reality: another world within sight</h2>
+    <p>Virtual Reality (VR) technology has come a long way since its inception in the 1960s. With the help of modern technology, VR has....</p>
+	<a href="blog.html" class="readmore" id="link4">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image5.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2> 5 Fascinating Facts About ChatGPT</h2>
+    <p>ChatGPT (Chat Generative Pre-trained Transformer) is a complex machine learning model that can perform natural language generation....</p>
+	<a href="blog.html" class="readmore" id="link5">Read more  &raquo;</a>
+    </div>
+	
+    </div>
+</section>
+  <section id="r3" class="section ">
+   <div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image12.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Exploring off-the-beaten-path destinations in Asia</h2>
+    <p>Asia is a vast and diverse continent with plenty of destinations that are popular among tourists. However, some of the most...</p>
+	<a href="blog.html" class="readmore" id="link12"  >Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image13.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The benefits of traveling alone and how to make the most of your solo trip</h2>
+    <p>Traveling alone can be a daunting experience, but it can also be one of the most rewarding and enriching experiences of your....</p>
+	<a href="blog.html" class="readmore"  id="link13" >Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	<div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image14.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Culinary tourism</h2>
+    <p>Culinary tourism, also known as food tourism or gastronomic tourism, is a popular travel trend that has been gaining momentum....</p>
+	<a href="blog.html" class="readmore" id="link14">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image15.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The best destinations for digital nomads</h2>
+    <p>With the rise of remote work, digital nomads are on the rise. Digital nomads are individuals who use technology to work remotely....</p>
+	<a href="blog.html" class="readmore" id="link15">Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	<div class="row"  >
+	  <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image16.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The joys of slow travel</h2>
+    <p>In today's fast-paced world, the idea of slow travel has become increasingly popular among travelers. Unlike traditional tourism, where....</p>
+	<a href="blog.html" class="readmore" id="link16">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image17.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The world's most scenic train journeys</h2>
+    <p>The world's most scenic train journeys take you through some of the most breathtaking landscapes on the planet. Train travel can....</p>
+	<a href="blog.html" class="readmore" id="link17">Read more  &raquo;</a>
+    </div>
+	
+    </div>
+	
+	 
+</section>
+
+</section>
+  <section id="r4" class="section ">
+   <div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image18.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Traditional Foods of the Mediterranean Diet</h2>
+    <p>The Mediterranean diet is often touted as one of the healthiest diets in the world, and for good reason. This way of eating...</p>
+	<a href="blog.html" class="readmore" id="link18"  >Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image19.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Evolution of Street Food</h2>
+    <p>Street food is a ubiquitous part of many cultures around the world. From hot dogs and pretzels in New York City to kebabs....</p>
+	<a href="blog.html" class="readmore"  id="link19" >Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	<div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image20.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Art of Pairing Wine and Food</h2>
+    <p>Wine is often considered a luxury beverage that is reserved for special occasions or fine dining experiences. However, pairing....</p>
+	<a href="blog.html" class="readmore" id="link20">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image21.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Culinary Adventures in South America</h2>
+    <p>South America is a continent that is renowned for its rich and diverse culinary traditions. From succulent grilled meats....</p>
+	<a href="blog.html" class="readmore" id="link21">Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	<div class="row"  >
+	  <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image22.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Rise of Food Tourism</h2>
+    <p>Food tourism or gastronomic tourism, is a popular travel trend that has been gaining momentum in recent years. It is a....</p>
+	<a href="blog.html" class="readmore" id="link22">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image23.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>From Farm to Table: Understanding the Journey of Your Food</h2>
+    <p>As we sit down to enjoy our meals, we often don't stop to think about the journey our food has taken to reach our plates. The food we ....</p>
+	<a href="blog.html" class="readmore" id="link23">Read more  &raquo;</a>
+    </div>
+	
+    </div>
+	
+	 
+</section>
+
+
+</section>
+  <section id="r5" class="section ">
+   <div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image24.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Rise of Esports and Its Impact on Traditional Sports</h2>
+    <p>Esports, or competitive video gaming, has been on the rise in recent years and is quickly becoming a major player...</p>
+	<a href="blog.html" class="readmore" id="link24"  >Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image25.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Benefits of Youth Sports Participation: Beyond Physical Fitness</h2>
+    <p>Youth sports participation offers numerous benefits beyond physical fitness, making it a vital component of a child's....</p>
+	<a href="blog.html" class="readmore"  id="link25" >Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	<div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image26.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Role of Sports in Building Community and Social Connections</h2>
+    <p>Sports have always been a unifying force for people all around the world. It brings together individuals from different backgrounds,....</p>
+	<a href="blog.html" class="readmore" id="link26">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image27.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Science Behind Athletic Performance</h2>
+    <p>Athletic performance is a complex phenomenon that involves various biological, physiological, psychological, and....</p>
+	<a href="blog.html" class="readmore" id="link27">Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	<div class="row"  >
+	  <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image28.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Ethics of Performance-Enhancing Drugs in Sports</h2>
+    <p>The topic of performance-enhancing drugs (PEDs) in sports is a highly controversial and divisive one. On one hand, some argue....</p>
+	<a href="blog.html" class="readmore" id="link28">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image29.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The History and Evolution of the Olympic Games</h2>
+    <p>The Olympic Games is an international multi-sport event that brings together athletes from different countries to compete....</p>
+	<a href="blog.html" class="readmore" id="link29">Read more  &raquo;</a>
+    </div>
+	
+    </div>
+	
+	 
+</section>
+
+</section>
+  <section id="r6" class="section ">
+   <div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image30.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Power of Positive Thinking</h2>
+    <p>The power of positive thinking has been studied and recognized as a way to improve mental health and wellbeing. Positive thinking...</p>
+	<a href="blog.html" class="readmore" id="link30"  >Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image31.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Importance of Sleep and Tips for Getting a Good Night's Rest</h2>
+    <p>Getting enough quality sleep is vital to our physical and mental well-being, yet many people struggle with sleep issues. In this blog, we will ....</p>
+	<a href="blog.html" class="readmore"  id="link31" >Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	<div class="row"  >
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image32.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Connection Between Gut Health and Overall Health</h2>
+    <p>The human gut is home to trillions of microorganisms, collectively known as the gut microbiome. The gut microbiome....</p>
+	<a href="blog.html" class="readmore" id="link32">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image33.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>The Dangers of Sitting Too Much</h2>
+    <p>In today's world, many of us lead sedentary lifestyles that involve long periods of sitting, whether it's at work, in front of a computer,....</p>
+	<a href="blog.html" class="readmore" id="link33">Read more  &raquo;</a>
+    </div>
+    </div>
+	
+	<div class="row"  >
+	  <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image34.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>Understanding the Impact of Stress on Your Health</h2>
+    <p>Stress is an inevitable part of life, and it affects us all in different ways. While a small amount of stress can be beneficial in terms....</p>
+	<a href="blog.html" class="readmore" id="link34">Read more  &raquo;</a>
+    </div>
+    <div class="column"  style=" padding-right:10px; padding-left:10px;">
+    <img src="Images/image35.jpg"  width="100%" height="100%" align="center" style="object-fit: contain;" > 
+    <h2>How to Build a Consistent Exercise Routine</h2>
+    <p>Regular exercise is one of the most important things you can do for your overall health and wellbeing. However, many people....</p>
+	<a href="blog.html" class="readmore" id="link35">Read more  &raquo;</a>
+    </div>
+	
+    </div>
+	
+	 
+</section>
+
+<br><br>
+<button class="previous " id="previous">&laquo;  Previous </button>
+<button class="next " id="next" >Next  &raquo;</button>
+
+  </div>
+  
+</div>
+</div>
+
+<footer>
+  <div style="margin-top:15px;" > 
+  <a href="https://www.instagram.com/____.s.n.e.h.a.__/?hl=en" target="_blank"><img src="instagram.svg" width="20px" height="20px" align="center" style="margin-left:5px" ></a>
+  <a href="https://twitter.com/Sneha_Minion?t=k3kutEaL5I8LAoahqupHyg&s=08" target="_blank"><img src="twitter.svg" width="20px" height="20px" align="center" style="margin-left:5px" > </a>
+  <a href="https://www.facebook.com/profile.php?id=100062126223572" target="_blank"><img src="facebook.svg" width="20px" height="20px" align="center" style="margin-left:5px"></a>
+  </div>
+  <div class="foot"style="margin-bottom:15px ; margin-top:5px;"  >©2022 Mini's Blog</div>
+</footer>
+<script>
+    document.getElementById("link").addEventListener("click", function() {
+    localStorage.setItem("content", "link 0");
+  });
+
+    document.getElementById("link1").addEventListener("click", function() {
+    localStorage.setItem("content", "link 1");
+  });
+  document.getElementById("link2").addEventListener("click", function() {
+    localStorage.setItem("content", "link 2");
+  });
+
+    document.getElementById("link3").addEventListener("click", function() {
+    localStorage.setItem("content", "link 3");
+  });
+  document.getElementById("link4").addEventListener("click", function() {
+    localStorage.setItem("content", "link 4");
+  });
+
+    document.getElementById("link5").addEventListener("click", function() {
+    localStorage.setItem("content", "link 5");
+  });
+  document.getElementById("link6").addEventListener("click", function() {
+    localStorage.setItem("content", "link 6");
+  });
+
+    document.getElementById("link7").addEventListener("click", function() {
+    localStorage.setItem("content", "link 7");
+  });
+  document.getElementById("link8").addEventListener("click", function() {
+    localStorage.setItem("content", "link 8");
+  });
+
+    document.getElementById("link9").addEventListener("click", function() {
+    localStorage.setItem("content", "link 9");
+  });
+  document.getElementById("link10").addEventListener("click", function() {
+    localStorage.setItem("content", "link 10");
+  });
+
+    document.getElementById("link11").addEventListener("click", function() {
+    localStorage.setItem("content", "link 11");
+  });
+  document.getElementById("link12").addEventListener("click", function() {
+    localStorage.setItem("content", "link 12");
+  });
+
+    document.getElementById("link13").addEventListener("click", function() {
+    localStorage.setItem("content", "link 13");
+  });
+  document.getElementById("link14").addEventListener("click", function() {
+    localStorage.setItem("content", "link 14");
+  });
+
+    document.getElementById("link15").addEventListener("click", function() {
+    localStorage.setItem("content", "link 15");
+  });
+  document.getElementById("link16").addEventListener("click", function() {
+    localStorage.setItem("content", "link 16");
+  });
+
+    document.getElementById("link17").addEventListener("click", function() {
+    localStorage.setItem("content", "link 17");
+  });
+  
+  document.getElementById("link18").addEventListener("click", function() {
+    localStorage.setItem("content", "link 18");
+  });
+
+    document.getElementById("link19").addEventListener("click", function() {
+    localStorage.setItem("content", "link 19");
+  });
+  document.getElementById("link20").addEventListener("click", function() {
+    localStorage.setItem("content", "link 20");
+  });
+
+    document.getElementById("link21").addEventListener("click", function() {
+    localStorage.setItem("content", "link 21");
+  });
+  document.getElementById("link22").addEventListener("click", function() {
+    localStorage.setItem("content", "link 22");
+  });
+
+    document.getElementById("link23").addEventListener("click", function() {
+    localStorage.setItem("content", "link 23");
+  });
+  
+  document.getElementById("link24").addEventListener("click", function() {
+    localStorage.setItem("content", "link 24");
+  });
+
+    document.getElementById("link25").addEventListener("click", function() {
+    localStorage.setItem("content", "link 25");
+  });
+  document.getElementById("link26").addEventListener("click", function() {
+    localStorage.setItem("content", "link 26");
+  });
+
+    document.getElementById("link27").addEventListener("click", function() {
+    localStorage.setItem("content", "link 27");
+  });
+  document.getElementById("link28").addEventListener("click", function() {
+    localStorage.setItem("content", "link 28");
+  });
+
+    document.getElementById("link29").addEventListener("click", function() {
+    localStorage.setItem("content", "link 29");
+  });
+  
+  document.getElementById("link30").addEventListener("click", function() {
+    localStorage.setItem("content", "link 30");
+  });
+
+    document.getElementById("link31").addEventListener("click", function() {
+    localStorage.setItem("content", "link 31");
+  });
+  document.getElementById("link32").addEventListener("click", function() {
+    localStorage.setItem("content", "link 32");
+  });
+
+    document.getElementById("link33").addEventListener("click", function() {
+    localStorage.setItem("content", "link 33");
+  });
+  document.getElementById("link34").addEventListener("click", function() {
+    localStorage.setItem("content", "link 34");
+  });
+
+    document.getElementById("link35").addEventListener("click", function() {
+    localStorage.setItem("content", "link 35");
+  });
+  
+    
+</script>  
+<script>
+let currentSection = 0;
+let sections = document.querySelectorAll(".section");
+let nextButton = document.querySelector(".next");
+let previousButton = document.querySelector(".previous");
+
+
+nextButton.addEventListener("click", function() {
+    if (currentSection < sections.length - 1) {
+	    sections[currentSection].classList.remove("active");
+		currentSection = currentSection + 1;
+        sections[currentSection].classList.add("active");
+        
+    }
+	
+});
+
+previousButton.addEventListener("click", function() {
+    if (currentSection > 0) {
+        sections[currentSection].classList.remove("active");
+		currentSection = currentSection - 1;
+		sections[currentSection].classList.add("active");
+        
+    }
+	
+});
+
+document.getElementById("l1").addEventListener("click", function() {
+    sections[currentSection].classList.remove("active");
+	sections[0].classList.add("active");
+	currentSection = 0;
+  });
+ document.getElementById("l2").addEventListener("click", function() {
+    sections[currentSection].classList.remove("active");
+	sections[1].classList.add("active");
+	currentSection = 1;
+  });
+ document.getElementById("l3").addEventListener("click", function() {
+    sections[currentSection].classList.remove("active");
+	sections[2].classList.add("active");
+	currentSection = 2;
+  });
+ document.getElementById("l4").addEventListener("click", function() {
+    sections[currentSection].classList.remove("active");
+	sections[3].classList.add("active");
+	currentSection = 3;
+  });
+ document.getElementById("l5").addEventListener("click", function() {
+    sections[currentSection].classList.remove("active");
+	sections[4].classList.add("active");
+	currentSection = 4;
+  });
+  document.getElementById("l6").addEventListener("click", function() {
+    sections[currentSection].classList.remove("active");
+	sections[5].classList.add("active");
+	currentSection = 5;
+  });
+  
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+function myFunc() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
